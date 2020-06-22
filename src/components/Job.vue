@@ -1,5 +1,5 @@
 <template>
-  <p>{{ job }}</p>
+  <div>{{ job }}</div>
 </template>
 
 <script>
