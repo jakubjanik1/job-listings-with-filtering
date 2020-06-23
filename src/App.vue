@@ -40,6 +40,10 @@ header {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
   background: hsl(180, 52%, 96%);
 }
 </style>
