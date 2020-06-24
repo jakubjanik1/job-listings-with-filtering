@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="job__filters">
+    <div class="job__filters" @click="filterJobs">
       <div class="job__role">{{ job.role }}</div>
       <div class="job__level">{{ job.level }}</div>
 
@@ -35,7 +35,14 @@
 <script>
 export default {
   name: "Job",
-  props: ["job"]
+  props: ["job"],
+  methods: {
+    filterJobs(e) {
+      if (e.target.classList.contains("job__filters")) return;
+
+      this.$emit("filterJobs", e.target.textContent);
+    }
+  }
 };
 </script>
 
