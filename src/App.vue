@@ -2,13 +2,18 @@
   <div id="app">
     <header></header>
     <main>
-      <Job v-for="job in jobs" :job="job" :key="job.id" />
+      <Job
+        v-for="job in jobs"
+        :job="job"
+        :key="job.id"
+        @filterJobs="filterJobs"
+      />
     </main>
   </div>
 </template>
 
 <script>
-import jobs from "@/jobs.json";
+import allJobs from "@/jobs.json";
 import Job from "@/components/Job";
 
 export default {
@@ -18,8 +23,17 @@ export default {
   },
   data() {
     return {
-      jobs
+      jobs: allJobs
     };
+  },
+  methods: {
+    filterJobs(filter) {
+      this.jobs = this.jobs.filter(job => {
+        return [job.role, job.level, ...job.languages, ...job.tools].includes(
+          filter
+        );
+      });
+    }
   }
 };
 </script>
