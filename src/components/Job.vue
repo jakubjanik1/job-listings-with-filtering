@@ -18,14 +18,14 @@
       <div class="job__level">{{ job.level }}</div>
 
       <div
-        class="job__language"
+        class="job__languages"
         v-for="language in job.languages"
         :key="language"
       >
         {{ language }}
       </div>
 
-      <div class="job__tool" v-for="tool in job.tools" :key="tool">
+      <div class="job__tools" v-for="tool in job.tools" :key="tool">
         {{ tool }}
       </div>
     </div>
@@ -37,10 +37,13 @@ export default {
   name: "Job",
   props: ["job"],
   methods: {
-    filterJobs(e) {
-      if (e.target.classList.contains("job__filters")) return;
+    filterJobs({ target }) {
+      if (target.classList.contains("job__filters")) return;
 
-      this.$emit("filterJobs", e.target.textContent);
+      const field = target.className.slice(5);
+      const value = target.textContent.trim();
+
+      this.$emit("filterJobs", { field, value });
     }
   }
 };
@@ -91,8 +94,8 @@ export default {
 
   &__role,
   &__level,
-  &__language,
-  &__tool {
+  &__languages,
+  &__tools {
     line-height: 2.3em;
     height: 2em;
     padding: 0 0.5em;

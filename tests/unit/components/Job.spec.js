@@ -4,23 +4,32 @@ import jobsMock from "@/jobs.json";
 
 describe("<Job />", () => {
   let wrapper;
+
   beforeEach(() => {
     wrapper = shallowMount(Job, {
       propsData: {
-        job: jobsMock[0]
+        job: jobsMock[1]
       }
     });
   });
 
-  it("should emit an event when click on a filter tablet", () => {
-    const role = wrapper.find(".job__role");
+  it("should emit an event with correct arguments when click on any filter", () => {
+    const filters = ["role", "level", "languages", "tools"];
 
-    role.trigger("click");
+    filters.forEach((filter, index) => {
+      const filterTablet = wrapper.find(`.job__${filter}`);
+      const expectedValue = wrapper.props("job")[filter];
 
-    expect(wrapper.emitted("filterJobs")).toBeTruthy();
-    expect(wrapper.emitted("filterJobs")[0]).toStrictEqual([
-      wrapper.props("job").role
-    ]);
+      filterTablet.trigger("click");
+
+      expect(wrapper.emitted("filterJobs")).toBeTruthy();
+      expect(wrapper.emitted("filterJobs")[index]).toStrictEqual([
+        {
+          field: filter,
+          value: Array.isArray(expectedValue) ? expectedValue[0] : expectedValue
+        }
+      ]);
+    });
   });
 
   it("should not emit an event when click outside a filter tablets", () => {
