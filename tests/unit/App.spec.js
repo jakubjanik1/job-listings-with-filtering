@@ -12,18 +12,27 @@ describe("<App />", () => {
 
   it("should render all jobs components", () => {
     expect(jobs.length).toBe(jobsMock.length);
-    expect(jobs.at(0).props("job")).toBe(jobsMock[0]);
+    expect(jobs.at(0).props("job")).toStrictEqual(jobsMock[0]);
   });
 
-  it('should filter jobs when "filterJobs" event is captured', async () => {
-    jobs.at(0).vm.$emit("filterJobs", "Fullstack");
-    await wrapper.vm.$nextTick();
+  it('should filter jobs when "filterJobs" event is captured', () => {
+    const filters = ["role", "level", "languages", "tools"];
+    const values = ["Fullstack", "Midweight", "Python", "React"];
 
-    const filteredJobs = wrapper.findAllComponents({ name: "Job" });
+    filters.forEach(async (filter, index) => {
+      jobs
+        .at(0)
+        .vm.$emit("filterJobs", { field: filter, value: values[index] });
 
-    expect(filteredJobs.length).toBe(2);
-    expect(
-      filteredJobs.wrappers.every(job => job.props("job").role === "Fullstack")
-    ).toBe(true);
+      await wrapper.vm.$nextTick();
+
+      const filteredJobs = wrapper.findAllComponents({ name: "Job" });
+
+      expect(
+        filteredJobs.wrappers.every(job =>
+          job.props("job")[filter].includes(values[index])
+        )
+      ).toBe(true);
+    });
   });
 });

@@ -27,12 +27,8 @@ export default {
     };
   },
   methods: {
-    filterJobs(filter) {
-      this.jobs = this.jobs.filter(job => {
-        return [job.role, job.level, ...job.languages, ...job.tools].includes(
-          filter
-        );
-      });
+    filterJobs({ field, value }) {
+      this.jobs = this.jobs.filter(job => job[field].includes(value));
     }
   }
 };
