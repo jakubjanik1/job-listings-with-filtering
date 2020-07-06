@@ -1,12 +1,17 @@
 <template>
-  <div class="job">
+  <div class="job" :class="{ 'job--featured': job.featured }">
     <img class="job__logo" :src="job.logo" alt="job logo" />
 
     <div class="job__info">
-      <div class="job__company">{{ job.company }}</div>
+      <div>
+        <div class="job__company">{{ job.company }}</div>
+        <div class="job__new" v-show="job.new">NEW!</div>
+        <div class="job__featured" v-show="job.featured">FEATURED</div>
+      </div>
+
       <div class="job__position">{{ job.position }}</div>
 
-      <div class="job__additional-info">
+      <div>
         <div class="job__date">{{ job.postedAt }}</div>
         <div class="job__contract">{{ job.contract }}</div>
         <div class="job__location">{{ job.location }}</div>
@@ -57,30 +62,73 @@ export default {
   margin: 1em;
   background: #fff;
   box-shadow: 0 10px 30px rgba(91, 164, 164, 0.3);
+  border-radius: 0.5em;
+
+  &--featured {
+    border-left: 4px solid hsl(180, 29%, 50%);
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding-left: 2em;
+
+    & > * {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__company {
     font-weight: 700;
+    font-size: 0.9em;
     color: hsl(180, 29%, 50%);
+  }
+
+  &__new,
+  &__featured {
+    border-radius: 1em;
+    font-weight: 700;
+    font-size: 0.75em;
+    padding: 0.6em;
+    height: 1em;
+  }
+
+  &__new {
+    background: hsl(180, 29%, 50%);
+    color: hsl(180, 31%, 95%);
+    margin-left: 1.5em;
+  }
+
+  &__featured {
+    background: hsl(180, 14%, 20%);
+    color: hsl(180, 31%, 95%);
+    margin-left: 1em;
   }
 
   &__position {
     color: hsl(180, 14%, 20%);
     font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.5s;
+
+    &:hover {
+      color: hsl(180, 29%, 50%);
+      cursor: pointer;
+    }
   }
 
-  &__additional-info {
-    display: flex;
+  &__date,
+  &__contract,
+  &__location {
     color: hsl(180, 8%, 52%);
     font-weight: 500;
+  }
 
-    & * + *::before {
+  &__contract,
+  &__location {
+    &::before {
       content: "\00a0\00a0\00a0•\00a0\00a0\00a0";
     }
   }
@@ -96,15 +144,22 @@ export default {
   &__level,
   &__languages,
   &__tools {
-    line-height: 2.3em;
-    height: 2em;
-    padding: 0 0.5em;
     margin-left: 1em;
     border-radius: 0.5em;
     background: hsl(180, 31%, 95%);
-    color: #5ba4a4;
+    color: hsl(180, 29%, 50%);
     font-weight: 700;
     font-size: 0.9em;
+    height: 2.5em;
+    padding: 0 0.75em;
+    line-height: 2.8em;
+    transition: all 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      background: hsl(180, 29%, 50%);
+      color: hsl(180, 31%, 95%);
+    }
   }
 }
 </style>
