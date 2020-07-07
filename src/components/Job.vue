@@ -18,6 +18,8 @@
       </div>
     </div>
 
+    <div class="job__line"></div>
+
     <div class="job__filters" @click="filterJobs">
       <div class="job__role">{{ job.role }}</div>
       <div class="job__level">{{ job.level }}</div>
@@ -55,11 +57,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$logo-size: 88px;
+
 .job {
-  width: 1000px;
+  width: 100%;
+  max-width: 1125px;
   display: flex;
   padding: 2em;
   margin: 1em;
+  box-sizing: border-box;
   background: #fff;
   box-shadow: 0 10px 30px rgba(91, 164, 164, 0.3);
   border-radius: 0.5em;
@@ -159,6 +165,38 @@ export default {
       cursor: pointer;
       background: hsl(180, 29%, 50%);
       color: hsl(180, 31%, 95%);
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .job {
+    flex-direction: column;
+    position: relative;
+
+    &__logo {
+      width: $logo-size / 2;
+      height: $logo-size / 2;
+      position: absolute;
+      top: -($logo-size / 4);
+    }
+
+    &__info {
+      padding-left: 0;
+      height: 7em;
+    }
+
+    &__line {
+      height: 1px;
+      width: 100%;
+      background: hsl(180, 8%, 52%);
+      margin: 1em 0;
+    }
+
+    &__filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: unset;
     }
   }
 }

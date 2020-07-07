@@ -53,7 +53,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3em;
+  padding: 3em 2em;
   background: hsl(180, 52%, 96%);
+}
+
+@media all and (max-width: 1000px) {
+  main {
+    padding: 2em 1em;
+  }
 }
 </style>
