@@ -11,9 +11,11 @@
 
       <div class="job__position">{{ job.position }}</div>
 
-      <div>
+      <div class="job__additional-info">
         <div class="job__date">{{ job.postedAt }}</div>
+
         <div class="job__contract">{{ job.contract }}</div>
+
         <div class="job__location">{{ job.location }}</div>
       </div>
     </div>
@@ -125,17 +127,22 @@ $logo-size: 88px;
     }
   }
 
-  &__date,
-  &__contract,
-  &__location {
+  &__additional-info {
     color: hsl(180, 8%, 52%);
     font-weight: 500;
+    text-align: center;
+    margin: 0;
   }
 
   &__contract,
   &__location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &::before {
-      content: "\00a0\00a0\00a0•\00a0\00a0\00a0";
+      content: "\00a0•\00a0";
+      font-size: 1.5em;
     }
   }
 
@@ -173,6 +180,8 @@ $logo-size: 88px;
   .job {
     flex-direction: column;
     position: relative;
+    max-width: 500px;
+    margin: 1.5em;
 
     &__logo {
       width: $logo-size / 2;
@@ -189,14 +198,21 @@ $logo-size: 88px;
     &__line {
       height: 1px;
       width: 100%;
-      background: hsl(180, 8%, 52%);
       margin: 1em 0;
+      border-top: 1px solid hsl(180, 8%, 52%);
     }
 
     &__filters {
       display: flex;
       flex-wrap: wrap;
       justify-content: unset;
+      margin-left: -1em;
+      margin-top: -1em;
+      height: 5em;
+
+      & > * {
+        margin-top: 1em;
+      }
     }
   }
 }

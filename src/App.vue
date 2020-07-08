@@ -59,7 +59,7 @@ main {
 
 @media all and (max-width: 1000px) {
   main {
-    padding: 2em 1em;
+    padding: 2em 1.5em;
   }
 }
 </style>
