@@ -22,7 +22,7 @@
 
     <div class="job__line"></div>
 
-    <div class="job__filters" @click="filterJobs">
+    <div class="job__filters" @click="emitFilter">
       <div class="job__role">{{ job.role }}</div>
       <div class="job__level">{{ job.level }}</div>
 
@@ -46,13 +46,10 @@ export default {
   name: "Job",
   props: ["job"],
   methods: {
-    filterJobs({ target }) {
+    emitFilter({ target }) {
       if (target.classList.contains("job__filters")) return;
 
-      const field = target.className.slice(5);
-      const value = target.textContent.trim();
-
-      this.$emit("filterJobs", { field, value });
+      this.$emit("filter", target.textContent.trim());
     }
   }
 };

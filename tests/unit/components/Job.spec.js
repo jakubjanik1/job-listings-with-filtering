@@ -15,20 +15,15 @@ describe("<Job />", () => {
 
   it("should emit an event with correct arguments when click on any filter", () => {
     const filters = ["role", "level", "languages", "tools"];
+    const values = ["Fullstack", "Midweight", "Python", "React"];
 
     filters.forEach((filter, index) => {
       const filterTablet = wrapper.find(`.job__${filter}`);
-      const expectedValue = wrapper.props("job")[filter];
 
       filterTablet.trigger("click");
 
-      expect(wrapper.emitted("filterJobs")).toBeTruthy();
-      expect(wrapper.emitted("filterJobs")[index]).toStrictEqual([
-        {
-          field: filter,
-          value: Array.isArray(expectedValue) ? expectedValue[0] : expectedValue
-        }
-      ]);
+      expect(wrapper.emitted("filter")).toBeTruthy();
+      expect(wrapper.emitted("filter")[index]).toStrictEqual([values[index]]);
     });
   });
 
@@ -37,6 +32,6 @@ describe("<Job />", () => {
 
     filters.trigger("click");
 
-    expect(wrapper.emitted("filterJobs")).toBeFalsy();
+    expect(wrapper.emitted("filter")).toBeFalsy();
   });
 });

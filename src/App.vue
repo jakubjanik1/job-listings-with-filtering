@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     <JobFilters v-show="filters.length" :filters="filters" />
-    <Job
-      v-for="job in jobs"
-      :job="job"
-      :key="job.id"
-      @filterJobs="filterJobs"
-    />
+    <Job v-for="job in jobs" :job="job" :key="job.id" @filter="filterJobs" />
   </div>
 </template>
 
@@ -28,10 +23,12 @@ export default {
     };
   },
   methods: {
-    filterJobs({ field, value }) {
-      this.jobs = this.jobs.filter(job => job[field].includes(value));
+    filterJobs(filter) {
+      this.jobs = this.jobs.filter(job =>
+        [job.role, job.level, ...job.languages, ...job.tools].includes(filter)
+      );
 
-      this.filters.push(value);
+      this.filters.push(filter);
     }
   }
 };
