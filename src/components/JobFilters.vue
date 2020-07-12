@@ -1,23 +1,26 @@
 <template>
   <div class="job-filters">
-    <div class="job-filters__filter" v-for="filter in value" :key="filter">
+    <div class="job-filters__filter" v-for="filter in filters" :key="filter">
       {{ filter }}
       <div class="job-filters__remove" @click="remove(filter)">
         <img src="@/assets/icon-remove.svg" alt="remove" />
       </div>
     </div>
+
+    <div class="job-filters__clear" @click="clear">Clear</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["value"],
+  props: ["filters"],
   methods: {
     remove(filter) {
-      const index = this.value.indexOf(filter);
-      this.value.splice(index, 1);
-
-      this.$emit("input", this.value);
+      const index = this.filters.indexOf(filter);
+      this.filters.splice(index, 1);
+    },
+    clear() {
+      this.filters.splice(0);
     }
   }
 };
@@ -33,6 +36,7 @@ export default {
   padding: 1.5em 3em;
   box-sizing: border-box;
   display: flex;
+  align-items: center;
   border-radius: 0.5em;
   box-shadow: 0 10px 30px rgba(91, 164, 164, 0.3);
 
@@ -64,6 +68,19 @@ export default {
 
     &:hover {
       background-color: hsl(180, 14%, 20%);
+      cursor: pointer;
+    }
+  }
+
+  &__clear {
+    color: hsl(180, 8%, 52%);
+    font-weight: 700;
+    margin-left: auto;
+
+    &:hover {
+      color: hsl(180, 29%, 50%);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
       cursor: pointer;
     }
   }
