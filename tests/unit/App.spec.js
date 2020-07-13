@@ -33,4 +33,22 @@ describe("<App />", () => {
       ).toBe(true);
     });
   });
+
+  it("should pass filters to JobFilters component", () => {
+    jobs.at(0).vm.$emit("filter", "CSS");
+    jobs.at(1).vm.$emit("filter", "React");
+
+    const jobFilters = wrapper.findComponent({ name: "JobFilters" });
+
+    expect(jobFilters.props("filters")).toStrictEqual(["CSS", "React"]);
+  });
+
+  it("should not allow to duplicate filters", () => {
+    jobs.at(0).vm.$emit("filter", "CSS");
+    jobs.at(1).vm.$emit("filter", "CSS");
+
+    const jobFilters = wrapper.findComponent({ name: "JobFilters" });
+
+    expect(jobFilters.props("filters")).toStrictEqual(["CSS"]);
+  });
 });

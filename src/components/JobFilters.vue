@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: "JobFilters",
   props: ["filters"],
   methods: {
     remove(filter) {

@@ -24,11 +24,22 @@ export default {
   },
   methods: {
     filterJobs(filter) {
-      this.jobs = this.jobs.filter(job =>
-        [job.role, job.level, ...job.languages, ...job.tools].includes(filter)
-      );
-
+      if (this.filters.includes(filter)) return;
       this.filters.push(filter);
+    }
+  },
+  watch: {
+    filters: {
+      deep: true,
+      handler(newFilters) {
+        this.jobs = allJobs.filter(job =>
+          newFilters.every(filter =>
+            [job.role, job.level, ...job.languages, ...job.tools].includes(
+              filter
+            )
+          )
+        );
+      }
     }
   }
 };
@@ -54,7 +65,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  main {
+  #app {
     padding: 2em 1.5em;
   }
 }
