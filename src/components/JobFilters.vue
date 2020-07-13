@@ -1,12 +1,13 @@
 <template>
   <div class="job-filters">
-    <div class="job-filters__filter" v-for="filter in filters" :key="filter">
-      {{ filter }}
-      <div class="job-filters__remove" @click="remove(filter)">
-        <img src="@/assets/icon-remove.svg" alt="remove" />
+    <div class="job-filters__filters">
+      <div class="job-filters__filter" v-for="filter in filters" :key="filter">
+        {{ filter }}
+        <div class="job-filters__remove" @click="remove(filter)">
+          <img src="@/assets/icon-remove.svg" alt="remove" />
+        </div>
       </div>
     </div>
-
     <div class="job-filters__clear" @click="clear">Clear</div>
   </div>
 </template>
@@ -40,6 +41,13 @@ export default {
   border-radius: 0.5em;
   box-shadow: 0 10px 30px rgba(91, 164, 164, 0.3);
 
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1.5em;
+    margin-top: -1.5em;
+  }
+
   &__filter {
     border-radius: 0.5em;
     background: hsl(180, 31%, 95%);
@@ -50,10 +58,8 @@ export default {
     padding-left: 0.75em;
     line-height: 2.8em;
     display: flex;
-
-    &:not(:first-child) {
-      margin-left: 1.5em;
-    }
+    margin-left: 1.5em;
+    margin-top: 1.5em;
   }
 
   &__remove {
@@ -76,6 +82,8 @@ export default {
     color: hsl(180, 8%, 52%);
     font-weight: 700;
     margin-left: auto;
+    padding-left: 2em;
+    transition: color 300ms;
 
     &:hover {
       color: hsl(180, 29%, 50%);
@@ -89,7 +97,7 @@ export default {
 @media all and (max-width: 1000px) {
   .job-filters {
     max-width: 500px;
-    margin: 1.5em;
+    padding: 2em;
   }
 }
 </style>
