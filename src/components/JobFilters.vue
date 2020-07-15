@@ -85,6 +85,7 @@ export default {
     margin-left: auto;
     padding-left: 2em;
     transition: color 300ms;
+    font-size: 0.9em;
 
     &:hover {
       color: hsl(180, 29%, 50%);

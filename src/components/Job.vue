@@ -76,7 +76,7 @@ $logo-size: 88px;
   &__info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-left: 2em;
 
     & > * {
@@ -95,9 +95,9 @@ $logo-size: 88px;
   &__featured {
     border-radius: 1em;
     font-weight: 700;
-    font-size: 0.75em;
-    padding: 0.6em;
-    height: 1em;
+    font-size: 0.7em;
+    padding: 0.55em;
+    height: 0.85em;
   }
 
   &__new {
@@ -116,7 +116,7 @@ $logo-size: 88px;
     color: hsl(180, 14%, 20%);
     font-weight: 700;
     font-size: 1.1em;
-    transition: all 0.5s;
+    transition: color 300ms;
 
     &:hover {
       color: hsl(180, 29%, 50%);
@@ -127,7 +127,8 @@ $logo-size: 88px;
   &__additional-info {
     color: hsl(180, 8%, 52%);
     font-weight: 500;
-    text-align: center;
+    font-size: 0.9em;
+    display: flex;
     margin: 0;
   }
 
@@ -138,7 +139,7 @@ $logo-size: 88px;
     align-items: center;
 
     &::before {
-      content: "\00a0•\00a0";
+      content: "\00a0\00a0•\00a0\00a0";
       font-size: 1.5em;
     }
   }
@@ -163,7 +164,7 @@ $logo-size: 88px;
     height: 2.5em;
     padding: 0 0.75em;
     line-height: 2.8em;
-    transition: all 0.5s;
+    transition: background 300ms, color 300ms;
 
     &:hover {
       cursor: pointer;
