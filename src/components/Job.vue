@@ -73,12 +73,12 @@ $logo-size: 88px;
   &--featured::before {
     content: "";
     height: 100%;
-    width: 4px;
+    width: 5px;
     background: hsl(180, 29%, 50%);
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 0.5em 0 0 0.5em;
+    border-radius: 1.2em 0 0 1.2em;
   }
 
   &__info {
