@@ -63,14 +63,22 @@ $logo-size: 88px;
   max-width: 1125px;
   display: flex;
   padding: 2em;
-  margin: 1em;
+  margin: 0.9em;
   box-sizing: border-box;
   background: #fff;
   box-shadow: 0 10px 30px rgba(91, 164, 164, 0.3);
   border-radius: 0.5em;
+  position: relative;
 
-  &--featured {
-    border-left: 4px solid hsl(180, 29%, 50%);
+  &--featured::before {
+    content: "";
+    height: 100%;
+    width: 4px;
+    background: hsl(180, 29%, 50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.5em 0 0 0.5em;
   }
 
   &__info {
@@ -87,7 +95,6 @@ $logo-size: 88px;
 
   &__company {
     font-weight: 700;
-    font-size: 0.9em;
     color: hsl(180, 29%, 50%);
   }
 
@@ -96,7 +103,7 @@ $logo-size: 88px;
     border-radius: 1em;
     font-weight: 700;
     font-size: 0.7em;
-    padding: 0.55em;
+    padding: 0.65em;
     height: 0.85em;
   }
 
@@ -115,7 +122,7 @@ $logo-size: 88px;
   &__position {
     color: hsl(180, 14%, 20%);
     font-weight: 700;
-    font-size: 1.1em;
+    font-size: 1.15em;
     transition: color 300ms;
 
     &:hover {
@@ -127,7 +134,6 @@ $logo-size: 88px;
   &__additional-info {
     color: hsl(180, 8%, 52%);
     font-weight: 500;
-    font-size: 0.9em;
     display: flex;
     margin: 0;
   }
@@ -140,6 +146,7 @@ $logo-size: 88px;
 
     &::before {
       content: "\00a0\00a0•\00a0\00a0";
+      color: lighten(hsl(180, 8%, 52%), 13%);
       font-size: 1.5em;
     }
   }
