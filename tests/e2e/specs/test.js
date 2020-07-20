@@ -9,19 +9,66 @@ describe("Job Listings", () => {
     cy.get(".job").should("have.length", jobsMock.length);
   });
 
-  it("should filter jobs based on role", () => {
-    cy.get(".job:first > .job__filters > .job__role").click();
+  context("Filtering", () => {
+    it("should filter jobs based on role", () => {
+      cy.get(".job:first > .job__filters")
+        .contains("Frontend")
+        .click();
 
-    cy.get(".job").each(job => {
-      cy.wrap(job)
-        .get(".job__role")
-        .should("contain", "Frontend");
+      cy.get(".job").each(job => {
+        cy.wrap(job).should("contain", "Frontend");
+      });
+    });
+
+    it("should filter jobs based on level", () => {
+      cy.get(".job:first > .job__filters")
+        .contains("Senior")
+        .click();
+
+      cy.get(".job").each(job => {
+        cy.wrap(job).should("contain", "Senior");
+      });
+    });
+
+    it("should filter jobs based on language", () => {
+      cy.get(".job:first > .job__filters")
+        .contains("HTML")
+        .click();
+
+      cy.get(".job").each(job => {
+        cy.wrap(job).should("contain", "HTML");
+      });
+    });
+
+    it("should filter jobs based on tool", () => {
+      cy.get(".job")
+        .eq(1)
+        .get(".job__filters > .job__tools:first")
+        .contains("React")
+        .click();
+
+      cy.get(".job").each(job => {
+        cy.wrap(job).should("contain", "React");
+      });
     });
   });
 
   context("Job filters", () => {
     it("should be hidden initially", () => {
       cy.get(".job-filters").should("not.be.visible");
+    });
+
+    it("should show clicked filters", () => {
+      cy.get(".job:first > .job__filters")
+        .contains("Frontend")
+        .click();
+      cy.get(".job:first > .job__filters")
+        .contains("Senior")
+        .click();
+
+      cy.get(".job-filters").should("be.visible");
+      cy.get(".job-filters").should("contain", "Frontend");
+      cy.get(".job-filters").should("contain", "Senior");
     });
 
     it('should go back to initial state when "Clear" is clicked', () => {
