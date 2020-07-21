@@ -58,17 +58,24 @@ describe("Job Listings", () => {
       cy.get(".job-filters").should("not.be.visible");
     });
 
-    it("should show clicked filters", () => {
+    it("should show clicked filters without duplicates", () => {
       cy.get(".job:first > .job__filters")
         .contains("Frontend")
         .click();
+
+      cy.get(".job:first > .job__filters")
+        .contains("Senior")
+        .click();
+
       cy.get(".job:first > .job__filters")
         .contains("Senior")
         .click();
 
       cy.get(".job-filters").should("be.visible");
       cy.get(".job-filters").should("contain", "Frontend");
-      cy.get(".job-filters").should("contain", "Senior");
+      cy.get(".job-filters")
+        .contains("Senior")
+        .should("have.length", 1);
     });
 
     it('should go back to initial state when "Clear" is clicked', () => {
@@ -79,6 +86,17 @@ describe("Job Listings", () => {
 
       cy.get(".job").should("have.length", jobsMock.length);
       cy.get(".job-filters").should("not.be.visible");
+    });
+
+    it("should remove a filter when remove icon is clicked", () => {
+      cy.get(".job:first > .job__filters")
+        .contains("Frontend")
+        .click();
+
+      cy.get(".job-filters__filter:first > .job-filters__remove").click();
+
+      cy.get(".job-filters").should("not.contain", "Frontend");
+      cy.get(".job").should("have.length", jobsMock.length);
     });
   });
 });
