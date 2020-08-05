@@ -38,7 +38,7 @@ Here are the links to a [challenge description](https://www.frontendmentor.io/ch
 | [Cypress](https://www.cypress.io/)                      | End-to-end testing framework             |
 | [ESLint](https://eslint.org/)                           | Javascript linter                        |
 | [Prettier](https://prettier.io/)                        | Code formatter                           |
-| [Vercel](https://prettier.io/)                          | Cloud platform for websites              |
+| [Vercel](https://vercel.com/)                           | Cloud platform for websites              |
 
 ## Screenshots 📺
 
