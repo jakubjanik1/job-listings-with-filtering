@@ -1,6 +1,6 @@
 <template>
   <div class="job-listing">
-    <JobFilters v-if="filters.length" :filters="filters" />
+    <JobFilters v-show="filters.length" :filters="filters" />
     <Job v-for="job in jobs" :job="job" :key="job.id" @filter="filterJobs" />
   </div>
 </template>
