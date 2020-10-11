@@ -43,7 +43,7 @@ Here are the links to a [challenge description](https://www.frontendmentor.io/ch
 ## Screenshots 📺
 
 <p align="center">
-    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596607763/job-listings-with-filtering/me9gsi6tahlc5zie4ucz.png" alt="Screenshot">
+    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596603672/job-listings-with-filtering/nkmglx8rltn7ctf8hmdt.png" alt="Screenshot">
 </p>
 
 <p align="center">
