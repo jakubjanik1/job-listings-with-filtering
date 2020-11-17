@@ -12,7 +12,7 @@
 
 </h1>
 
-<h4 align="center">Job listings with filtering - challenge solution</h4>
+<h4 align="center">Job listings with filtering</h4>
 
 <p align="center">
   <a >
@@ -53,7 +53,7 @@ Here are the links to a [challenge description](https://www.frontendmentor.io/ch
 ## Installation 💾
 
 ``` shell
-git clone https://github.com/jakubjanik1/job-listings-with-filtering.git
+git clone https://github.com/kubajanik/job-listings-with-filtering.git
 
 npm install
 
