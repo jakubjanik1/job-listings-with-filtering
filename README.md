@@ -6,10 +6,6 @@
 <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596341165/intro-component-with-signup-form/jaa0re6jaqvgthphcak6.png"  alt="Logo">
 </p>
 
-<br>
-
-<br>
-
 </h1>
 
 <h4 align="center">Job listings with filtering</h4>
