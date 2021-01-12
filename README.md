@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-<img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596341165/intro-component-with-signup-form/jaa0re6jaqvgthphcak6.png"  alt="Logo">
+<img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596341165/intro-component-with-signup-form/jaa0re6jaqvgthphcak6.webp"  alt="Logo">
 </p>
 
 </h1>
@@ -12,7 +12,7 @@
 
 <p align="center">
   <a >
-    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596522681/job-listings-with-filtering/zgf4nvxf2sidpwbzjitn.png"
+    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596522681/job-listings-with-filtering/zgf4nvxf2sidpwbzjitn.webp"
          alt="Screenshot">
   </a>
 </p>
@@ -39,11 +39,11 @@ Here are the links to a [challenge description](https://www.frontendmentor.io/ch
 ## Screenshots 📺
 
 <p align="center">
-    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596603672/job-listings-with-filtering/nkmglx8rltn7ctf8hmdt.png" alt="Screenshot">
+    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596603672/job-listings-with-filtering/nkmglx8rltn7ctf8hmdt.webp" alt="Screenshot">
 </p>
 
 <p align="center">
-    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596603244/job-listings-with-filtering/xikcn7vx8mm015hvp9px.png" alt="Screenshot">
+    <img src="https://res.cloudinary.com/djc9jias4/image/upload/v1596603244/job-listings-with-filtering/xikcn7vx8mm015hvp9px.webp" alt="Screenshot">
 </p>
 
 ## Installation 💾
